@@ -1,7 +1,8 @@
-import java.util.List;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        Chart chart;
         ChartBuilder chartBuilder = new ChartBuilder();
         chartBuilder.setSize(15);
         chartBuilder.wordDay();
@@ -11,13 +12,10 @@ public class Main {
         chartBuilder.workDays(5);
         chartBuilder.setSize(20);
         chartBuilder.wordDay();
-        println(chartBuilder.build());
+        chart = chartBuilder.build();
+        System.out.println(Arrays.toString(chart.getSchedule()));
         chartBuilder.setSize(10);
-        println(chartBuilder.build());
-    }
-
-    public static void println(List<Boolean> employeeSchedule) {
-        for (boolean x : employeeSchedule) System.out.println(x ? "Rabochiy den" : "Vihodnoiy");
-        System.out.println("========");
+        chart = chartBuilder.build();
+        System.out.println(Arrays.toString(chart.getSchedule()));
     }
 }

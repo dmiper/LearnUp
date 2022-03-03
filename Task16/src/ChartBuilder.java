@@ -39,10 +39,14 @@ public class ChartBuilder {
         for (int i = 0; i < count; i++) employeeSchedule.add(true);
     }
 
-    public List<Boolean> build() {
+    public Chart build() {
         if (employeeSchedule == null) {
             throw new IllegalStateException("Grafik ne mojet bit pestoiy!");
         }
-        return employeeSchedule;
+        Boolean[] schedule = new Boolean[employeeSchedule.size()];
+        for (int i = 0; i < employeeSchedule.size(); i++) {
+            schedule[i] = employeeSchedule.get(i);
+        }
+        return new Chart(schedule);
     }
 }
