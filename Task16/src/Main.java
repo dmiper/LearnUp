@@ -2,7 +2,6 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Chart chart;
         ChartBuilder chartBuilder = new ChartBuilder();
         chartBuilder.setSize(15);
         chartBuilder.wordDay();
@@ -12,7 +11,7 @@ public class Main {
         chartBuilder.workDays(5);
         chartBuilder.setSize(20);
         chartBuilder.wordDay();
-        chart = chartBuilder.build();
+        Chart chart = chartBuilder.build();
         System.out.println(Arrays.toString(chart.getSchedule()));
         chartBuilder.setSize(10);
         chart = chartBuilder.build();
