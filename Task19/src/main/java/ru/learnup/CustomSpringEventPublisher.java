@@ -1,6 +1,5 @@
 package ru.learnup;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -8,8 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
-
-// публикатор событий
 
 @Component
 public class CustomSpringEventPublisher implements ApplicationContextAware {

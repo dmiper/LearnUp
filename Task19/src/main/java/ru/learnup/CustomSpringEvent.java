@@ -2,7 +2,6 @@ package ru.learnup;
 
 import org.springframework.context.ApplicationEvent;
 
-// Простое Событие Приложения
 public class CustomSpringEvent extends ApplicationEvent {
     private final String event;
 
