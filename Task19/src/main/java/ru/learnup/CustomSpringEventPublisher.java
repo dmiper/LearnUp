@@ -13,26 +13,14 @@ public class CustomSpringEventPublisher implements ApplicationContextAware {
 
     private ApplicationContext context;
 
-    public String publishEvent(int randomNumber, int yourNumber) {
+    public void publishEvent(int randomNumber, int yourNumber) {
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration.xml");
-        Locale localeDefault = Locale.getDefault();
-        String str;
-        if (yourNumber != randomNumber) {
-            if (yourNumber > randomNumber) {
-                str = context.getMessage("less", null, localeDefault);
-            } else {
-                str = context.getMessage("bigger", null, localeDefault);
-            }
-        } else {
-            str = context.getMessage("win", null, localeDefault) + " " + randomNumber;
-        }
+        String str = yourNumber != randomNumber ? yourNumber > randomNumber ? context.getMessage("less", null, Locale.getDefault()) : context.getMessage("bigger", null, Locale.getDefault()) : context.getMessage("win", null, Locale.getDefault()) + " " + randomNumber;
         context.publishEvent(new CustomSpringEvent(context, str));
-        return str;
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.context = applicationContext;
     }
-
 }
