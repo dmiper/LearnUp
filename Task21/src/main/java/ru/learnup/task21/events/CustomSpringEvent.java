@@ -1,4 +1,4 @@
-package ru.learnup.Task20;
+package ru.learnup.task21.events;
 
 import org.springframework.context.ApplicationEvent;
 
