@@ -12,26 +12,34 @@ public class BooksRepository {
 
     private final NamedParameterJdbcTemplate template;
 
-    private static final String FIND_ALL = "select * from schema.books ";
+    private static final String FIND_ALL_BOOKS_AND_AUTHORS =
+            "select g_books.id, g_books.name_book, g_books.author_id, c.author, g_books.quantity " +
+                    "from books g_books " +
+                    "left join authors c on c.id = g_books.author_id";
 
-    private static final String FIND_BY_ID = "select * from schema.books " +
-            "where books.id = :id";
+    private static final String FIND_BY_ID =
+            "select g_books.id, g_books.name_book, g_books.author_id, c.author, g_books.quantity " +
+                    "from books g_books " +
+                    "left join authors c on c.id = g_books.author_id where g_books.id = :id";
 
     private static final String SAVE_BOOKS =
-            "insert into schema.books (name_book, author, quantity) " +
-                    "values (:name_book, :author, :quantity)";
+            "insert into books (name_book, author_id, quantity) values (:name_book, :author_id, :quantity)";
 
+    private static final String UPDATE_ORDER =
+            "update books set quantity = quantity - (:quantity) where id = (:id)";
 
     public BooksRepository(NamedParameterJdbcTemplate template) {
         this.template = template;
     }
 
-    public List<Books> findAllBooks() {
-        return template.query(FIND_ALL,
+
+    public List<Books> findAllBooksAndAuthors() {
+        return template.query(FIND_ALL_BOOKS_AND_AUTHORS,
                 new MapSqlParameterSource(), (rs, rn) -> Books.builder()
                         .id(rs.getInt("id"))
                         .nameBook(rs.getString("name_book"))
-                        .author(rs.getString("author"))
+                        .authorId(rs.getInt("author_id"))
+                        .authorName(rs.getString("author"))
                         .quantity(rs.getInt("quantity"))
                         .build()
         );
@@ -44,7 +52,8 @@ public class BooksRepository {
                         (rs, rn) -> Books.builder()
                                 .id(rs.getInt("id"))
                                 .nameBook(rs.getString("name_book"))
-                                .author(rs.getString("author"))
+                                .authorId(rs.getInt("author_id"))
+                                .authorName(rs.getString("author"))
                                 .quantity(rs.getInt("quantity"))
                                 .build()
                 ).stream()
@@ -57,8 +66,19 @@ public class BooksRepository {
                 SAVE_BOOKS,
                 new MapSqlParameterSource()
                         .addValue("name_book", books.getNameBook())
-                        .addValue("author", books.getAuthor())
+                        .addValue("author_id", books.getAuthorId())
                         .addValue("quantity", books.getQuantity())
         );
     }
+
+    public void updateBook(Books books) {
+        template.update(
+                UPDATE_ORDER,
+                new MapSqlParameterSource()
+                        .addValue("id", books.getId())
+                        .addValue("quantity", books.getQuantity())
+        );
+    }
+
+
 }

@@ -14,15 +14,16 @@ public class OrdersRepository {
 
     private final NamedParameterJdbcTemplate template;
 
-    private static final String FIND_ALL = "select * from schema.orders ";
+    private static final String FIND_ALL =
+            "select * from orders";
 
     private static final String FIND_BY_ID =
-            "select * from schema.orders " +
-                    "where orders.id_order_number= :id_order_number";
+            "select * from orders where orders.id= :id";
 
     private static final String SAVE_ORDER =
-            "insert into schema.orders (book, quantity, buyers_name, date_order) " +
-                    "values (:book, :quantity, :buyers_name, :date_order)";
+            "insert into orders (book, quantity, buyers_name, date_order) values (:book, :quantity, :buyers_name, :date_order)";
+
+
 
 
     public OrdersRepository(NamedParameterJdbcTemplate template) {
@@ -32,7 +33,7 @@ public class OrdersRepository {
     public List<Orders> findAllOrder() {
         return template.query(FIND_ALL,
                 new MapSqlParameterSource(), (rs, rn) -> Orders.builder()
-                        .idOrderNumber(rs.getInt("id_order_number"))
+                        .id(rs.getInt("id"))
                         .book(rs.getInt("book"))
                         .quantity(rs.getInt("quantity"))
                         .buyersName(rs.getString("buyers_name"))
@@ -44,8 +45,8 @@ public class OrdersRepository {
     public Orders findByIdOrder(int id) {
         return template.query(
                         FIND_BY_ID,
-                        new MapSqlParameterSource("id_order_number", id), (rs, rn) -> Orders.builder()
-                                .idOrderNumber(rs.getInt("id_order_number"))
+                        new MapSqlParameterSource("id", id), (rs, rn) -> Orders.builder()
+                                .id(rs.getInt("id"))
                                 .book(rs.getInt("book"))
                                 .quantity(rs.getInt("quantity"))
                                 .buyersName(rs.getString("buyers_name"))
@@ -56,7 +57,7 @@ public class OrdersRepository {
                 .orElseThrow(() -> new RuntimeException("Order with id = " + id + " is not found"));
     }
 
-    public void saveOrder(Orders orders) {
+    public void makeOrder(Orders orders) {
         template.update(
                 SAVE_ORDER,
                 new MapSqlParameterSource()
@@ -69,4 +70,5 @@ public class OrdersRepository {
                                 .toEpochMilli()))
         );
     }
+
 }

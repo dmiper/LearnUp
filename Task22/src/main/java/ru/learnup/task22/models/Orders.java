@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class Orders {
-    private int idOrderNumber;
+    private int id;
     private int book;
     private int quantity;
     private String buyersName;
