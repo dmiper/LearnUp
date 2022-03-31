@@ -19,7 +19,7 @@ public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn
@@ -27,5 +27,5 @@ public class Orders {
 
     @Min(value = 0)
     @Column(nullable = false)
-    private int purchaseAmount;
+    private Integer purchaseAmount;
 }
