@@ -27,9 +27,9 @@ public class OrderDetails {
 
     @Min(value = 0)
     @Column(nullable = false)
-    private Integer quantity;
+    private Long quantity;
 
     @Min(value = 0)
     @Column(nullable = false)
-    private Integer price;
+    private Long price;
 }

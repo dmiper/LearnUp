@@ -23,6 +23,6 @@ public class BookWarehouse {
 
     @Min(value = 0)
     @Column(nullable = false)
-    private Integer theRestOfTheBooks;
+    private Long theRestOfTheBooks;
 
 }

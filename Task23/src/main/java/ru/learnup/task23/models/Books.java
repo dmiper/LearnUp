@@ -20,7 +20,7 @@ public class Books {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String title;
@@ -34,9 +34,9 @@ public class Books {
 
     @Min(value = 0)
     @Column(nullable = false)
-    private int numberOfPages;
+    private Long numberOfPages;
 
     @Min(value = 0)
     @Column(nullable = false)
-    private int price;
+    private Long price;
 }
