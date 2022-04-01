@@ -18,6 +18,9 @@ import javax.validation.constraints.Min;
 public class BookWarehouse {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @OneToOne(optional = false)
     private Books book;
 

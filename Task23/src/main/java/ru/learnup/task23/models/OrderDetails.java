@@ -18,6 +18,9 @@ import javax.validation.constraints.Min;
 public class OrderDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @OneToOne
     private Orders orderID;
 
