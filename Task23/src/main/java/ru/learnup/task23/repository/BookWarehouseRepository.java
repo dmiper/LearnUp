@@ -8,9 +8,4 @@ import ru.learnup.task23.models.Orders;
 @Repository
 public interface BookWarehouseRepository extends JpaRepository<BookWarehouse, Long> {
 
-    BookWarehouse save(BookWarehouse bookWarehouse);
-
-    Orders findAllById(Long id);
-
-    void delete(Long id);
 }

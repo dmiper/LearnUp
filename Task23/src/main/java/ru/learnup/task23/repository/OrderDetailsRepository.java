@@ -8,9 +8,4 @@ import ru.learnup.task23.models.Orders;
 @Repository
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long> {
 
-    OrderDetails save(OrderDetails orderDetails);
-
-    Orders findAllById(Long id);
-
-    void delete(Long id);
 }
