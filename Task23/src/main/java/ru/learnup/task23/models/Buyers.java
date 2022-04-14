@@ -10,12 +10,15 @@ import java.time.LocalDate;
  */
 @Getter
 @Setter
+@ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
 @Table
 public class Buyers {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

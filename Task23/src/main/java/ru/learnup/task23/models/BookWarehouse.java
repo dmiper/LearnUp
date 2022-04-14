@@ -10,7 +10,9 @@ import javax.validation.constraints.Min;
  */
 @Getter
 @Setter
+@ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
@@ -18,7 +20,7 @@ import javax.validation.constraints.Min;
 public class BookWarehouse {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne(optional = false)

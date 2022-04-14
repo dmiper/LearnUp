@@ -4,9 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-/**
- * Автор - ФИО, ид
- */
 @Getter
 @Setter
 @ToString
@@ -16,13 +13,13 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table
-public class Authors {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String fullName;
+    @Version
+    private Long version;
 
 }

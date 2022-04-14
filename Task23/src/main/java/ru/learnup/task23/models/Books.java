@@ -11,7 +11,9 @@ import java.time.LocalDate;
  */
 @Getter
 @Setter
+@ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
@@ -19,7 +21,7 @@ import java.time.LocalDate;
 public class Books {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
