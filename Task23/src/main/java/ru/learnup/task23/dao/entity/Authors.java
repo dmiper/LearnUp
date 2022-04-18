@@ -1,4 +1,4 @@
-package ru.learnup.task23.models;
+package ru.learnup.task23.dao.entity;
 
 import lombok.*;
 
@@ -7,13 +7,12 @@ import javax.persistence.*;
 /**
  * Автор - ФИО, ид
  */
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class Authors {
 
     @Id

@@ -8,25 +8,25 @@ import javax.validation.constraints.Min;
 /**
  * Детали заказа - ид заказа, ид книги, количество, цена
  */
+@Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 @Table
 public class OrderDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    private Orders orderID;
+    private Orders order;
 
     @ManyToOne
     @JoinColumn
-    private Books bookID;
+    private Books book;
 
     @Min(value = 0)
     @Column(nullable = false)

@@ -9,17 +9,17 @@ import java.time.LocalDate;
 /**
  * Книга - информация о названии, ид автора, годе издания, количестве страниц, цене
  */
+@Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 @Table
 public class Books {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -27,7 +27,7 @@ public class Books {
 
     @ManyToOne
     @JoinColumn
-    private Authors authorID;
+    private Authors author;
 
     @Column(nullable = false)
     private LocalDate yearOfPublication;

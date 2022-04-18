@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Книги</title>
+    <link rel="icon" type="image/png" th:href="@{/icon.png}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div th:replace="~{navigation :: navi(Shop)}"></div>
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <h1>Книги:</h1>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Номер</th>
+            <th>Название книги</th>
+            <th>Автор</th>
+            <th>Год издания книги</th>
+            <th>Количество страниц</th>
+            <th>Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="thead-light" th:each="book, stat : ${books}">
+            <td th:text="${stat.index+1}"></td>
+            <td th:text="${book.title()}"></td>
+            <td th:text="${book.author()}"></td>
+            <td th:text="${book.yearOfPublication()}"></td>
+            <td th:text="${book.numberOfPages()}"></td>
+            <td th:text="${book.price()}"></td>
+            <td>
+                <form action="/books/${books.id}">
+                    <input class="ui-button" type="submit" value="Исправить книгу">
+                </form>
+            </td>
+            <td>
+                <form method="post" action="/books/${books.id}/delete">
+                    <input class="ui-button" type="submit" value="Удалить книгу">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

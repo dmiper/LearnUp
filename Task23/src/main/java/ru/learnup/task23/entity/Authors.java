@@ -3,26 +3,24 @@ package ru.learnup.task23.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 /**
- * Покупатель - ид, ФИО, дата рождения
+ * Автор - ФИО, ид
  */
+@Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 @Table
-public class Buyers {
+public class Authors {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private String fullName;
 
-    @Column(nullable = false)
-    private LocalDate dateOfBirth;
 }

@@ -1,4 +1,4 @@
-package ru.learnup.task23.models;
+package ru.learnup.task23.dao.entity;
 
 import lombok.*;
 
@@ -8,22 +8,21 @@ import javax.validation.constraints.Min;
 /**
  * Заказ - ид покупателя, ид заказа, сумма покупки
  */
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn
-    private Buyers buyerID;
+    private Buyers buyer;
 
     @Min(value = 0)
     @Column(nullable = false)
