@@ -13,15 +13,32 @@
 <body>
 <div th:replace="~{navigation :: navi(AddBook)}"></div>
 
+<!--TODO: переделать добавление книги-->
+
+
 <form action="/books/addBook" method="post">
-    <p>Название: <input  class="form-control" type="text" value="${books.title}" name="title"/></p>
-    <p>ID автора: <input class="form-control" type="number" value="${books.author}" name="author"/></p>
-    <p>Дата издания книги: <input  class="form-control" type="date" value="${books.yearOfPublication}" name="yearOfPublication"/></p>
-    <p>Количество страниц: <input class="form-control" type="number" value="${books.numberOfPages}" name="numberOfPages"/></p>
-    <p>Цена: <input class="form-control" type="number" value="${books.price}" name="price"/></p>
-    <p><input class="ui-button" type="submit" value="Сохранить"/>
-        <input class="ui-button" type="reset" value="Сбросить"/>
-    </p>
+    <table>
+        <tr>
+            <label>Название:
+                <input class="form-control" type="text" name="title"/>
+            </label>
+            <label>ID автора:
+                <input class="form-control" type="number" name="author"/>
+            </label>
+            <label>Дата издания книги:
+                <input class="form-control" type="date" name="yearOfPublication"/>
+            </label>
+            <label>Количество страниц:
+                <input class="form-control" type="number" name="numberOfPages"/>
+            </label>
+            <label>Цена:
+                <input class="form-control" type="number" name="price"/>
+            </label>
+            <p><input class="ui-button" type="submit" value="Сохранить"/>
+                <input class="ui-button" type="reset" value="Сбросить"/>
+            </p>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

@@ -32,17 +32,17 @@
         </thead>
         <tbody>
         <tr class="thead-light" th:each="book, stat : ${books}">
-            <td th:text="${stat.index+1}"></td>
-            <td th:text="${book.title()}"></td>
-            <td th:text="${book.author()}"></td>
-            <td th:text="${book.yearOfPublication()}"></td>
-            <td th:text="${book.numberOfPages()}"></td>
-            <td th:text="${book.price()}"></td>
-            <td>
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author.fullName}"></td>
+            <td th:text="${book.yearOfPublication}"></td>
+            <td th:text="${book.numberOfPages}"></td>
+            <td th:text="${book.price}"></td>
+            <!--<td>
                 <form action="/books/${books.id}">
                     <input class="ui-button" type="submit" value="Исправить книгу">
                 </form>
-            </td>
+            </td>-->
             <td>
                 <form method="post" action="/books/${books.id}/delete">
                     <input class="ui-button" type="submit" value="Удалить книгу">

@@ -19,11 +19,10 @@ import java.util.List;
 public class BooksController {
     @Autowired
     private final BooksService booksService;
-    final String redirectHome = "home";
 
     @GetMapping
     public String home(Model model) {
-        return redirectHome;
+        return "home";
     }
 
     @PostMapping("/addBook")
@@ -41,17 +40,17 @@ public class BooksController {
         return "books";
     }
 
-    @PostMapping("/{idBook}/delete")
+    @PostMapping("/catalog/{idBook}/delete")
     public String delete(@PathVariable("idBook") Long id) {
+        log.debug("{}", id);
         booksService.deleteBook(id);
-        return redirectHome;
+        return "redirect:/books/";
     }
 
     @PostMapping("/{idBook}/update")
     public String update(@PathVariable("idBook") Long id, @Valid Books books) {
         booksService.updateBook(id, books);
-        return redirectHome + "/{idBook}";
+        return "/catalog/{idBook}";
     }
-
 
 }

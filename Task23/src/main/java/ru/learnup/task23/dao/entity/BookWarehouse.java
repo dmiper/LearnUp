@@ -3,9 +3,7 @@ package ru.learnup.task23.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 /**
  * Книжный склад - информация об остатках книг по идентификатору книги

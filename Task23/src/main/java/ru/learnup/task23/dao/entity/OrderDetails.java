@@ -1,5 +1,4 @@
 package ru.learnup.task23.dao.entity;
-
 import lombok.*;
 
 import javax.persistence.*;

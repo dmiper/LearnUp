@@ -1,26 +1,25 @@
 package ru.learnup.task23.dao.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-/**
- * Автор - ФИО, ид
- */
 @Entity
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Table(schema = "schema")
-public class Authors {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String fullName;
-
+    @Version
+    private Long version;
 }
