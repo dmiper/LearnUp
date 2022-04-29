@@ -12,4 +12,5 @@ public class Task21Application {
 
         context.getBean(GuessTheNumber.class).print(context);
     }
+
 }

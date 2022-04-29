@@ -12,7 +12,6 @@ import java.util.Arrays;
 @Aspect
 @Component
 public class AspectLogMethod {
-
     private static final Logger LOG = LoggerFactory.getLogger(AspectLogMethod.class);
 
     @AfterReturning(value = "@annotation(ru.learnup.task21.aspects.LogMethod)", returning = "object")

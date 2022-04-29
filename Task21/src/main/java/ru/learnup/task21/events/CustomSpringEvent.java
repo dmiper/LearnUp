@@ -13,5 +13,6 @@ public class CustomSpringEvent extends ApplicationEvent {
     public String getEvent() {
         return event;
     }
+
 }
 

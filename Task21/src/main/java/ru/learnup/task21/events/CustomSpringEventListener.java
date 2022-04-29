@@ -14,4 +14,5 @@ public class CustomSpringEventListener implements ApplicationListener<CustomSpri
     public void onApplicationEvent(CustomSpringEvent event) {
         LOG.info("Event: {}", event.getEvent());
     }
+
 }

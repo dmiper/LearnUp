@@ -28,4 +28,5 @@ public class GuessTheNumber {
             context.getBean(CustomSpringEventPublisher.class).publishEvent(randomNumber, yourNumber);
         }
     }
+
 }

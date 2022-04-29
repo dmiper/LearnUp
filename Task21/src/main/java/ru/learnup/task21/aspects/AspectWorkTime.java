@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AspectWorkTime {
-
     private static final Logger LOG = LoggerFactory.getLogger(AspectWorkTime.class);
 
     @Around(value = "@annotation(ru.learnup.task21.aspects.WorkTime)")

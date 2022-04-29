@@ -34,4 +34,5 @@ public class CustomSpringEventPublisher implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.context = applicationContext;
     }
+
 }
