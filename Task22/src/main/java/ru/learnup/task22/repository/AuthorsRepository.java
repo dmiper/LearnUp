@@ -29,8 +29,7 @@ public class AuthorsRepository {
                 new MapSqlParameterSource(), (rs, rn) -> Authors.builder()
                         .id(rs.getInt("id"))
                         .author(rs.getString("author"))
-                        .build()
-        );
+                        .build());
     }
 
     public Authors findByIdAuthors(int id) {
@@ -50,8 +49,7 @@ public class AuthorsRepository {
         template.update(
                 SAVE_AUTHOR,
                 new MapSqlParameterSource()
-                        .addValue("author", authors.getAuthor())
-        );
+                        .addValue("author", authors.getAuthor()));
     }
 
 }

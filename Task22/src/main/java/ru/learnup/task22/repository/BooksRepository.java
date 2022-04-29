@@ -41,8 +41,7 @@ public class BooksRepository {
                         .authorId(rs.getInt("author_id"))
                         .authorName(rs.getString("author"))
                         .quantity(rs.getInt("quantity"))
-                        .build()
-        );
+                        .build());
     }
 
     public Books findByIdBook(int id) {
@@ -76,8 +75,7 @@ public class BooksRepository {
                 UPDATE_ORDER,
                 new MapSqlParameterSource()
                         .addValue("id", books.getId())
-                        .addValue("quantity", books.getQuantity())
-        );
+                        .addValue("quantity", books.getQuantity()));
     }
 
 

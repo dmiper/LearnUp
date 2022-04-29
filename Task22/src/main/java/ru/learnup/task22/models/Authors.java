@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 @Builder
 public class Authors {
+
     private int id;
     private String author;
+
 }

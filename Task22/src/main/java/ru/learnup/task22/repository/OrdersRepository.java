@@ -67,8 +67,7 @@ public class OrdersRepository {
                         .addValue("date_order", new Date(orders.getDataOrder()
                                 .atStartOfDay()
                                 .toInstant(ZoneOffset.UTC)
-                                .toEpochMilli()))
-        );
+                                .toEpochMilli())));
     }
 
 }

@@ -11,6 +11,7 @@ public class Task22Application {
         ConfigurableApplicationContext run = SpringApplication.run(Task22Application.class, args);
 
         run.getBean(Tasting.class).print(run);
+
     }
 
 }
