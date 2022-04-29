@@ -1,4 +1,4 @@
-package ru.learnup.task23.models;
+package ru.learnup.task23.dao.entity;
 
 import lombok.*;
 
@@ -8,15 +8,12 @@ import javax.validation.constraints.Min;
 /**
  * Книжный склад - информация об остатках книг по идентификатору книги
  */
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class BookWarehouse {
 
     @Id
@@ -30,4 +27,6 @@ public class BookWarehouse {
     @Column(nullable = false)
     private Long theRestOfTheBooks;
 
+    @Version
+    private Long version;
 }

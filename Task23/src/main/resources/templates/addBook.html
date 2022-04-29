@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить книгу</title>
+    <link rel="icon" type="image/png" th:href="@{/icon.png}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div th:replace="~{navigation :: navi(AddBook)}"></div>
+
+<!--TODO: переделать добавление книги-->
+
+
+<form action="/books/addBook" method="post">
+    <table>
+        <tr>
+            <label>Название:
+                <input class="form-control" type="text" name="title"/>
+            </label>
+            <label>ID автора:
+                <input class="form-control" type="number" name="author"/>
+            </label>
+            <label>Дата издания книги:
+                <input class="form-control" type="date" name="yearOfPublication"/>
+            </label>
+            <label>Количество страниц:
+                <input class="form-control" type="number" name="numberOfPages"/>
+            </label>
+            <label>Цена:
+                <input class="form-control" type="number" name="price"/>
+            </label>
+            <p><input class="ui-button" type="submit" value="Сохранить"/>
+                <input class="ui-button" type="reset" value="Сбросить"/>
+            </p>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,5 +1,4 @@
-package ru.learnup.task23.models;
-
+package ru.learnup.task23.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,19 +7,15 @@ import java.time.LocalDate;
 /**
  * Покупатель - ид, ФИО, дата рождения
  */
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class Buyers {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

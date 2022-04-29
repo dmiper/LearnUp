@@ -1,5 +1,4 @@
-package ru.learnup.task23.models;
-
+package ru.learnup.task23.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,15 +7,12 @@ import javax.validation.constraints.Min;
 /**
  * Детали заказа - ид заказа, ид книги, количество, цена
  */
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class OrderDetails {
 
     @Id
@@ -24,11 +20,11 @@ public class OrderDetails {
     private Long id;
 
     @OneToOne
-    private Orders orderID;
+    private Orders order;
 
     @ManyToOne
     @JoinColumn
-    private Books bookID;
+    private Books book;
 
     @Min(value = 0)
     @Column(nullable = false)

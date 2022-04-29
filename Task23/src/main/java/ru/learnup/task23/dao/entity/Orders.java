@@ -1,4 +1,4 @@
-package ru.learnup.task23.models;
+package ru.learnup.task23.dao.entity;
 
 import lombok.*;
 
@@ -8,15 +8,12 @@ import javax.validation.constraints.Min;
 /**
  * Заказ - ид покупателя, ид заказа, сумма покупки
  */
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Entity
-@Table
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(schema = "schema")
 public class Orders {
 
     @Id
@@ -25,7 +22,7 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn
-    private Buyers buyerID;
+    private Buyers buyer;
 
     @Min(value = 0)
     @Column(nullable = false)

@@ -1,4 +1,4 @@
-package ru.learnup.task23.models;
+package ru.learnup.task23.dao.entity;
 
 import lombok.*;
 
@@ -9,15 +9,13 @@ import java.time.LocalDate;
 /**
  * Книга - информация о названии, ид автора, годе издания, количестве страниц, цене
  */
-@Getter
-@Setter
+@Entity
+@Data
 @ToString
-@RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(schema = "schema")
 public class Books {
 
     @Id
@@ -27,9 +25,10 @@ public class Books {
     @Column(nullable = false)
     private String title;
 
+
     @ManyToOne
     @JoinColumn
-    private Authors authorID;
+    private Authors author;
 
     @Column(nullable = false)
     private LocalDate yearOfPublication;
@@ -41,4 +40,5 @@ public class Books {
     @Min(value = 0)
     @Column(nullable = false)
     private Long price;
+
 }

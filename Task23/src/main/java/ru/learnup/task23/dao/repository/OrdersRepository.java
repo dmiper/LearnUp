@@ -1,8 +1,8 @@
-package ru.learnup.task23.repository;
+package ru.learnup.task23.dao.repository;
 
+import ru.learnup.task23.dao.entity.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.learnup.task23.models.Orders;
 
 import java.util.List;
 
